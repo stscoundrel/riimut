@@ -1,10 +1,17 @@
-# TypeScript Template
+# Riimut
 
-Template repo for generic TypeScript / Node.js library with tests &amp; lint
+Transform latin letters to runes &amp; vice versa. TypeScript version.
+
+Includes transformers for four main runic alphabets:
+
+- Elder Futhark
+- Younger Futhark
+- Medieval Futhork
+- Futhorc (Anglo-Frisian runes)
 
 ### Install
 
-`yarn add name-of-the-package`
+`npm install riimut`
 
 ##### Usage
 
