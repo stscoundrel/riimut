@@ -2,10 +2,11 @@
 
 Transform latin letters to runes &amp; vice versa. TypeScript version.
 
-Includes transformers for four main runic alphabets:
+Includes transformers for main runic alphabets:
 
 - Elder Futhark
 - Younger Futhark
+- Staveless Futhark
 - Medieval Futhork
 - Futhorc (Anglo-Frisian runes)
 
