@@ -1,6 +1,6 @@
 {
   "name": "riimut",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Transform latin letters to runes & vice versa. Includes transformers for main runic alphabets",
   "repository": "https://github.com/stscoundrel/riimut.git",
   "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
