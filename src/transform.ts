@@ -5,7 +5,7 @@ export const transform = (
   let result = "";
   const parts: string[] = content.split("");
 
-  parts.forEach((part) => {
+  for (const part of parts) {
     const partKey = part.toLocaleLowerCase();
 
     if (dictionary.has(partKey)) {
@@ -13,7 +13,7 @@ export const transform = (
     } else {
       result += part;
     }
-  });
+  }
 
   return result;
 };

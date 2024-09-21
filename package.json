@@ -16,15 +16,18 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@biomejs/biome": "1.9.2",
     "@types/bun": "latest",
     "@types/node": "^20.8.0",
     "prettier": "^3.3.3",
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "prettier": "prettier src tests --write",
+    "prettier:fix": "prettier src tests --write",
     "prettier:check": "prettier src tests --check",
-    "lint": "bun run prettier",
+    "biome:check": "bunx biome lint src tests",
+    "biome:fix": "bunx biome lint --write src tests",
+    "lint": "bun run prettier:check && bun run biome:check",
     "build": "bun tsc",
     "prepublishOnly": "npm run build",
     "test:coverage": "bun run test --coverage"
