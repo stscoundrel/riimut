@@ -1,33 +1,39 @@
+let cachedRuneMapping: Map<string, string> | null = null;
+
 export const getRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚮ", "o");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚴ", "k");
-  runeMapping.set("ᚼ", "h");
-  runeMapping.set("ᚿ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛆ", "a");
-  runeMapping.set("ᛌ", "s");
-  runeMapping.set("ᛋ", "s");
-  runeMapping.set("ᛐ", "t");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛘ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛦ", "y");
-  runeMapping.set(":", " ");
+  if (cachedRuneMapping) {
+    return cachedRuneMapping;
+  }
+
+  cachedRuneMapping = new Map();
+  cachedRuneMapping.set("ᚠ", "f");
+  cachedRuneMapping.set("ᚢ", "u");
+  cachedRuneMapping.set("ᚦ", "þ");
+  cachedRuneMapping.set("ᚮ", "o");
+  cachedRuneMapping.set("ᚱ", "r");
+  cachedRuneMapping.set("ᚴ", "k");
+  cachedRuneMapping.set("ᚼ", "h");
+  cachedRuneMapping.set("ᚿ", "n");
+  cachedRuneMapping.set("ᛁ", "i");
+  cachedRuneMapping.set("ᛆ", "a");
+  cachedRuneMapping.set("ᛌ", "s");
+  cachedRuneMapping.set("ᛋ", "s");
+  cachedRuneMapping.set("ᛐ", "t");
+  cachedRuneMapping.set("ᛏ", "t");
+  cachedRuneMapping.set("ᛒ", "b");
+  cachedRuneMapping.set("ᛘ", "m");
+  cachedRuneMapping.set("ᛚ", "l");
+  cachedRuneMapping.set("ᛦ", "y");
+  cachedRuneMapping.set(":", " ");
 
   // Sting diacritic secondary sounds.
-  runeMapping.set("ᚵ", "g");
-  runeMapping.set("ᚽ", "e");
-  runeMapping.set("ᚯ", "ø");
-  runeMapping.set("ᛅ", "æ");
-  runeMapping.set("ᚰ", "ǫ");
-  runeMapping.set("ᛕ", "ᴘ");
-  return runeMapping;
+  cachedRuneMapping.set("ᚵ", "g");
+  cachedRuneMapping.set("ᚽ", "e");
+  cachedRuneMapping.set("ᚯ", "ø");
+  cachedRuneMapping.set("ᛅ", "æ");
+  cachedRuneMapping.set("ᚰ", "ǫ");
+  cachedRuneMapping.set("ᛕ", "ᴘ");
+  return cachedRuneMapping;
 };
 
 export default {

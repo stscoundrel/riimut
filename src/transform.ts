@@ -2,20 +2,17 @@ export const transform = (
   content: string,
   dictionary: Map<string, string>,
 ): string => {
-  let result = "";
-  const parts: string[] = content.split("");
-
-  for (const part of parts) {
-    const partKey = part.toLocaleLowerCase();
-
-    if (dictionary.has(partKey)) {
-      result += dictionary.get(partKey);
-    } else {
-      result += part;
-    }
+  if (typeof content !== "string") {
+    return "";
   }
 
-  return result;
+  return content
+    .split("")
+    .map((char) => {
+      const key = char.toLocaleLowerCase();
+      return dictionary.has(key) ? dictionary.get(key)! : char;
+    })
+    .join("");
 };
 
 export default transform;
