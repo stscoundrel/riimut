@@ -7,28 +7,33 @@ import {
   getLettersToLongBranchRunesMapping,
   getLettersToShortTwigRunesMapping,
 } from "./mappings/younger-futhark/letter-mapping";
-import { transform } from "../transform";
+import { transliterate } from "../transform";
 
 export enum Variant {
   LongBranch = "LONG_BRANCH",
   ShortTwig = "SHORTTWIG",
 }
 
+/**
+ * Convert Latin letters to Younger Futhark Long Branch runes.
+ */
 export const lettersToLongBranchRunes = (content: string): string => {
   const letterMapping = getLettersToLongBranchRunesMapping();
-  const result = transform(content, letterMapping);
-
-  return result;
+  return transliterate(content, letterMapping);
 };
 
+/**
+ * Convert Latin letters to Younger Futhark Short Twig runes.
+ */
 export const lettersToShortTwigRunes = (content: string): string => {
   const letterMapping = getLettersToShortTwigRunesMapping();
-  const result = transform(content, letterMapping);
-
-  return result;
+  return transliterate(content, letterMapping);
 };
 
-// For backwards compatibility & similar interface for other rune libs.
+/**
+ * Convert Latin letters to Younger Futhark runes.
+ * Defaults to Long Branch variant; pass Variant.ShortTwig for Short Twig.
+ */
 export const lettersToRunes = (
   content: string,
   variant: Variant = Variant.LongBranch,
@@ -40,11 +45,12 @@ export const lettersToRunes = (
   return lettersToLongBranchRunes(content);
 };
 
+/**
+ * Convert Younger Futhark runes to Latin letters.
+ */
 export const runesToLetters = (content: string): string => {
   const runeMapping = getRuneMapping();
-  const result = transform(content, runeMapping);
-
-  return result;
+  return transliterate(content, runeMapping);
 };
 
 export default {

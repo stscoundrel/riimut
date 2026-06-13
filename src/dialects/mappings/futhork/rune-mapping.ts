@@ -1,34 +1,36 @@
-export const getRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚮ", "o");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚴ", "k");
-  runeMapping.set("ᚼ", "h");
-  runeMapping.set("ᚿ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛆ", "a");
-  runeMapping.set("ᛌ", "s");
-  runeMapping.set("ᛋ", "s");
-  runeMapping.set("ᛐ", "t");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛘ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛦ", "y");
-  runeMapping.set(":", " ");
+import { createMappingFromObject } from "../../../transform";
 
-  // Sting diacritic secondary sounds.
-  runeMapping.set("ᚵ", "g");
-  runeMapping.set("ᚽ", "e");
-  runeMapping.set("ᚯ", "ø");
-  runeMapping.set("ᛅ", "æ");
-  runeMapping.set("ᚰ", "ǫ");
-  runeMapping.set("ᛕ", "ᴘ");
-  return runeMapping;
+const RUNE_TO_LETTER: Record<string, string> = {
+  "ᚠ": "f",
+  "ᚢ": "u",
+  "ᚦ": "þ",
+  "ᚮ": "o",
+  "ᚱ": "r",
+  "ᚴ": "k",
+  "ᚼ": "h",
+  "ᚿ": "n",
+  "ᛁ": "i",
+  "ᛆ": "a",
+  "ᛌ": "s",
+  "ᛋ": "s",
+  "ᛐ": "t",
+  "ᛏ": "t",
+  "ᛒ": "b",
+  "ᛘ": "m",
+  "ᛚ": "l",
+  "ᛦ": "y",
+  ":": " ",
+  // Sting diacritic secondary sounds
+  "ᚵ": "g",
+  "ᚽ": "e",
+  "ᚯ": "ø",
+  "ᛅ": "æ",
+  "ᚰ": "ǫ",
+  "ᛕ": "ᴘ",
 };
+
+export const getRuneMapping = (): Map<string, string> =>
+  createMappingFromObject(RUNE_TO_LETTER);
 
 export default {
   getRuneMapping,

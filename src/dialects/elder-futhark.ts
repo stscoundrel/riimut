@@ -1,19 +1,23 @@
-import transform from "../transform";
+import { transliterate } from "../transform";
 import { getLetterMapping } from "./mappings/elder-futhark/letter-mapping";
 import { getRuneMapping } from "./mappings/elder-futhark/rune-mapping";
 
+/**
+ * Convert Latin letters to Elder Futhark runes.
+ * Characters not in the mapping pass through unchanged.
+ */
 export const lettersToRunes = (content: string): string => {
   const letterMapping = getLetterMapping();
-  const result = transform(content, letterMapping);
-
-  return result;
+  return transliterate(content, letterMapping);
 };
 
+/**
+ * Convert Elder Futhark runes to Latin letters.
+ * Runes not in the mapping pass through unchanged.
+ */
 export const runesToLetters = (content: string): string => {
   const runeMapping = getRuneMapping();
-  const result = transform(content, runeMapping);
-
-  return result;
+  return transliterate(content, runeMapping);
 };
 
 export default {

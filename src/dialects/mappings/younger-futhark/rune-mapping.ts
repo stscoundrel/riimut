@@ -1,74 +1,79 @@
-export const getRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚬ", "o");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚴ", "k");
-  runeMapping.set("ᚼ", "h");
-  runeMapping.set("ᚽ", "h");
-  runeMapping.set("ᚾ", "n");
-  runeMapping.set("ᚿ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛅ", "a");
-  runeMapping.set("ᛆ", "a");
-  runeMapping.set("ᛋ", "s");
-  runeMapping.set("ᛌ", "s");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛐ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛘ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛦ", "R");
-  runeMapping.set(":", " ");
-  return runeMapping;
+import { createMappingFromObject } from "../../../transform";
+
+const RUNE_TO_LETTER: Record<string, string> = {
+  "ᚠ": "f",
+  "ᚢ": "u",
+  "ᚦ": "þ",
+  "ᚬ": "o",
+  "ᚱ": "r",
+  "ᚴ": "k",
+  "ᚼ": "h",
+  "ᚽ": "h",
+  "ᚾ": "n",
+  "ᚿ": "n",
+  "ᛁ": "i",
+  "ᛅ": "a",
+  "ᛆ": "a",
+  "ᛋ": "s",
+  "ᛌ": "s",
+  "ᛏ": "t",
+  "ᛐ": "t",
+  "ᛒ": "b",
+  "ᛘ": "m",
+  "ᛚ": "l",
+  "ᛦ": "R",
+  ":": " ",
 };
 
-export const getLongBranchRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚬ", "o");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚴ", "k");
-  runeMapping.set("ᚼ", "h");
-  runeMapping.set("ᚾ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛅ", "a");
-  runeMapping.set("ᛋ", "s");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛘ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛦ", "R");
-  runeMapping.set(":", " ");
-  return runeMapping;
+const LONG_BRANCH_RUNE_TO_LETTER: Record<string, string> = {
+  "ᚠ": "f",
+  "ᚢ": "u",
+  "ᚦ": "þ",
+  "ᚬ": "o",
+  "ᚱ": "r",
+  "ᚴ": "k",
+  "ᚼ": "h",
+  "ᚾ": "n",
+  "ᛁ": "i",
+  "ᛅ": "a",
+  "ᛋ": "s",
+  "ᛏ": "t",
+  "ᛒ": "b",
+  "ᛘ": "m",
+  "ᛚ": "l",
+  "ᛦ": "R",
+  ":": " ",
 };
 
-export const getShortTwigRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚬ", "o");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚴ", "k");
-  runeMapping.set("ᚽ", "h");
-  runeMapping.set("ᚿ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛆ", "a");
-  runeMapping.set("ᛌ", "s");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛐ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛘ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛦ", "R");
-  runeMapping.set(":", " ");
-  return runeMapping;
+const SHORT_TWIG_RUNE_TO_LETTER: Record<string, string> = {
+  "ᚠ": "f",
+  "ᚢ": "u",
+  "ᚦ": "þ",
+  "ᚬ": "o",
+  "ᚱ": "r",
+  "ᚴ": "k",
+  "ᚽ": "h",
+  "ᚿ": "n",
+  "ᛁ": "i",
+  "ᛆ": "a",
+  "ᛌ": "s",
+  "ᛏ": "t",
+  "ᛐ": "t",
+  "ᛒ": "b",
+  "ᛘ": "m",
+  "ᛚ": "l",
+  "ᛦ": "R",
+  ":": " ",
 };
+
+export const getRuneMapping = (): Map<string, string> =>
+  createMappingFromObject(RUNE_TO_LETTER);
+
+export const getLongBranchRuneMapping = (): Map<string, string> =>
+  createMappingFromObject(LONG_BRANCH_RUNE_TO_LETTER);
+
+export const getShortTwigRuneMapping = (): Map<string, string> =>
+  createMappingFromObject(SHORT_TWIG_RUNE_TO_LETTER);
 
 export default {
   getRuneMapping,
