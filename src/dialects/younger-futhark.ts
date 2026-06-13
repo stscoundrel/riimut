@@ -14,38 +14,38 @@ export enum Variant {
   ShortTwig = "SHORTTWIG",
 }
 
-export const lettersToLongBranchRunes = (content: string): string => {
-  const letterMapping = getLettersToLongBranchRunesMapping();
-  const result = transform(content, letterMapping);
+/**
+ * Convert Latin letters to Younger Futhark Long Branch runes.
+ * This is the default variant used in Denmark and Sweden.
+ */
+export const lettersToLongBranchRunes = (content: string): string =>
+  transform(content, getLettersToLongBranchRunesMapping());
 
-  return result;
-};
+/**
+ * Convert Latin letters to Younger Futhark Short Twig runes.
+ * This variant was used primarily in Norway.
+ */
+export const lettersToShortTwigRunes = (content: string): string =>
+  transform(content, getLettersToShortTwigRunesMapping());
 
-export const lettersToShortTwigRunes = (content: string): string => {
-  const letterMapping = getLettersToShortTwigRunesMapping();
-  const result = transform(content, letterMapping);
-
-  return result;
-};
-
-// For backwards compatibility & similar interface for other rune libs.
+/**
+ * Convert Latin letters to Younger Futhark runes with variant selection.
+ * Defaults to Long Branch if no variant specified.
+ */
 export const lettersToRunes = (
   content: string,
   variant: Variant = Variant.LongBranch,
-): string => {
-  if (variant === Variant.ShortTwig) {
-    return lettersToShortTwigRunes(content);
-  }
+): string =>
+  variant === Variant.ShortTwig
+    ? lettersToShortTwigRunes(content)
+    : lettersToLongBranchRunes(content);
 
-  return lettersToLongBranchRunes(content);
-};
-
-export const runesToLetters = (content: string): string => {
-  const runeMapping = getRuneMapping();
-  const result = transform(content, runeMapping);
-
-  return result;
-};
+/**
+ * Convert Younger Futhark runes back to Latin letters.
+ * Handles both Long Branch and Short Twig rune forms.
+ */
+export const runesToLetters = (content: string): string =>
+  transform(content, getRuneMapping());
 
 export default {
   lettersToRunes,
