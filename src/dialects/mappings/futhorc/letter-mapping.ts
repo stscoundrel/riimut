@@ -1,52 +1,58 @@
+let cachedLetterMapping: Map<string, string> | null = null;
+
 export const getLetterMapping = (): Map<string, string> => {
-  const letterMapping = new Map();
+  if (cachedLetterMapping) {
+    return cachedLetterMapping;
+  }
 
-  letterMapping.set("a", "ᚪ");
-  letterMapping.set("á", "ᚪ");
-  letterMapping.set("b", "ᛒ");
-  letterMapping.set("c", "ᚳ");
-  letterMapping.set("d", "ᛞ");
-  letterMapping.set("ð", "ᛞ");
-  letterMapping.set("e", "ᛖ");
-  letterMapping.set("é", "ᛖ");
-  letterMapping.set("f", "ᚠ");
-  letterMapping.set("g", "ᚷ");
-  letterMapping.set("h", "ᚻ");
-  letterMapping.set("i", "ᛁ");
-  letterMapping.set("í", "ᛇ");
-  letterMapping.set("ï", "ᛇ");
-  letterMapping.set("ʒ", "ᛇ");
-  letterMapping.set("j", "ᛡ");
-  letterMapping.set("k", "ᚳ");
-  letterMapping.set("l", "ᛚ");
-  letterMapping.set("m", "ᛗ");
-  letterMapping.set("n", "ᚾ");
-  letterMapping.set("ŋ", "ᛝ");
-  letterMapping.set("o", "ᚩ");
-  letterMapping.set("ó", "ᚩ");
-  letterMapping.set("p", "ᛈ");
-  letterMapping.set("q", "ᚳ");
-  letterMapping.set("r", "ᚱ");
-  letterMapping.set("s", "ᛋ");
-  letterMapping.set("t", "ᛏ");
-  letterMapping.set("u", "ᚢ");
-  letterMapping.set("ú", "ᚢ");
-  letterMapping.set("v", "ᚹ");
-  letterMapping.set("w", "ᚹ");
-  letterMapping.set("x", "ᛉ");
-  letterMapping.set("y", "ᚣ");
-  letterMapping.set("ý", "ᚣ");
-  letterMapping.set("z", "ᛉ");
-  letterMapping.set("å", "ᚩ");
-  letterMapping.set("ä", "ᚫ");
-  letterMapping.set("æ", "ᚫ");
-  letterMapping.set("œ", "ᛟ");
-  letterMapping.set("ö", "ᛟ");
-  letterMapping.set("ø", "ᛟ");
-  letterMapping.set("þ", "ᚦ");
-  letterMapping.set(" ", ":");
+  cachedLetterMapping = new Map();
 
-  return letterMapping;
+  cachedLetterMapping.set("a", "ᚪ");
+  cachedLetterMapping.set("á", "ᚪ");
+  cachedLetterMapping.set("b", "ᛒ");
+  cachedLetterMapping.set("c", "ᚳ");
+  cachedLetterMapping.set("d", "ᛞ");
+  cachedLetterMapping.set("ð", "ᛞ");
+  cachedLetterMapping.set("e", "ᛖ");
+  cachedLetterMapping.set("é", "ᛖ");
+  cachedLetterMapping.set("f", "ᚠ");
+  cachedLetterMapping.set("g", "ᚷ");
+  cachedLetterMapping.set("h", "ᚻ");
+  cachedLetterMapping.set("i", "ᛁ");
+  cachedLetterMapping.set("í", "ᛇ");
+  cachedLetterMapping.set("ï", "ᛇ");
+  cachedLetterMapping.set("ʒ", "ᛇ");
+  cachedLetterMapping.set("j", "ᛡ");
+  cachedLetterMapping.set("k", "ᚳ");
+  cachedLetterMapping.set("l", "ᛚ");
+  cachedLetterMapping.set("m", "ᛗ");
+  cachedLetterMapping.set("n", "ᚾ");
+  cachedLetterMapping.set("ŋ", "ᛝ");
+  cachedLetterMapping.set("o", "ᚩ");
+  cachedLetterMapping.set("ó", "ᚩ");
+  cachedLetterMapping.set("p", "ᛈ");
+  cachedLetterMapping.set("q", "ᚳ");
+  cachedLetterMapping.set("r", "ᚱ");
+  cachedLetterMapping.set("s", "ᛋ");
+  cachedLetterMapping.set("t", "ᛏ");
+  cachedLetterMapping.set("u", "ᚢ");
+  cachedLetterMapping.set("ú", "ᚢ");
+  cachedLetterMapping.set("v", "ᚹ");
+  cachedLetterMapping.set("w", "ᚹ");
+  cachedLetterMapping.set("x", "ᛉ");
+  cachedLetterMapping.set("y", "ᚣ");
+  cachedLetterMapping.set("ý", "ᚣ");
+  cachedLetterMapping.set("z", "ᛉ");
+  cachedLetterMapping.set("å", "ᚩ");
+  cachedLetterMapping.set("ä", "ᚫ");
+  cachedLetterMapping.set("æ", "ᚫ");
+  cachedLetterMapping.set("œ", "ᛟ");
+  cachedLetterMapping.set("ö", "ᛟ");
+  cachedLetterMapping.set("ø", "ᛟ");
+  cachedLetterMapping.set("þ", "ᚦ");
+  cachedLetterMapping.set(" ", ":");
+
+  return cachedLetterMapping;
 };
 
 export default {

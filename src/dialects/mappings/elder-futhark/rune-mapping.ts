@@ -1,34 +1,40 @@
+let cachedRuneMapping: Map<string, string> | null = null;
+
 export const getRuneMapping = (): Map<string, string> => {
-  const runeMapping = new Map();
-  runeMapping.set("ᚠ", "f");
-  runeMapping.set("ᚢ", "u");
-  runeMapping.set("ᚦ", "þ");
-  runeMapping.set("ᚨ", "a");
-  runeMapping.set("ᚱ", "r");
-  runeMapping.set("ᚲ", "k");
-  runeMapping.set("ᚷ", "g");
-  runeMapping.set("ᚹ", "w");
-  runeMapping.set("ᚺ", "h");
-  runeMapping.set("ᚻ", "h");
-  runeMapping.set("ᚾ", "n");
-  runeMapping.set("ᛁ", "i");
-  runeMapping.set("ᛃ", "j");
-  runeMapping.set("ᛇ", "ï");
-  runeMapping.set("ᛈ", "p");
-  runeMapping.set("ᛉ", "z");
-  runeMapping.set("ᛊ", "s");
-  runeMapping.set("ᛋ", "s");
-  runeMapping.set("ᛏ", "t");
-  runeMapping.set("ᛒ", "b");
-  runeMapping.set("ᛖ", "e");
-  runeMapping.set("ᛗ", "m");
-  runeMapping.set("ᛚ", "l");
-  runeMapping.set("ᛜ", "ŋ");
-  runeMapping.set("ᛝ", "ŋ");
-  runeMapping.set("ᛟ", "o");
-  runeMapping.set("ᛞ", "d");
-  runeMapping.set(":", " ");
-  return runeMapping;
+  if (cachedRuneMapping) {
+    return cachedRuneMapping;
+  }
+
+  cachedRuneMapping = new Map();
+  cachedRuneMapping.set("ᚠ", "f");
+  cachedRuneMapping.set("ᚢ", "u");
+  cachedRuneMapping.set("ᚦ", "þ");
+  cachedRuneMapping.set("ᚨ", "a");
+  cachedRuneMapping.set("ᚱ", "r");
+  cachedRuneMapping.set("ᚲ", "k");
+  cachedRuneMapping.set("ᚷ", "g");
+  cachedRuneMapping.set("ᚹ", "w");
+  cachedRuneMapping.set("ᚺ", "h");
+  cachedRuneMapping.set("ᚻ", "h");
+  cachedRuneMapping.set("ᚾ", "n");
+  cachedRuneMapping.set("ᛁ", "i");
+  cachedRuneMapping.set("ᛃ", "j");
+  cachedRuneMapping.set("ᛇ", "ï");
+  cachedRuneMapping.set("ᛈ", "p");
+  cachedRuneMapping.set("ᛉ", "z");
+  cachedRuneMapping.set("ᛊ", "s");
+  cachedRuneMapping.set("ᛋ", "s");
+  cachedRuneMapping.set("ᛏ", "t");
+  cachedRuneMapping.set("ᛒ", "b");
+  cachedRuneMapping.set("ᛖ", "e");
+  cachedRuneMapping.set("ᛗ", "m");
+  cachedRuneMapping.set("ᛚ", "l");
+  cachedRuneMapping.set("ᛜ", "ŋ");
+  cachedRuneMapping.set("ᛝ", "ŋ");
+  cachedRuneMapping.set("ᛟ", "o");
+  cachedRuneMapping.set("ᛞ", "d");
+  cachedRuneMapping.set(":", " ");
+  return cachedRuneMapping;
 };
 
 export default {
